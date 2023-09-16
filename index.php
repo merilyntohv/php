@@ -2,19 +2,20 @@
 
 require_once('./connection.php');
 
-?><ul id="nav"><?php
-$stmt = $pdo->query('SELECT * FROM books');
+$stmt = $pdo->query('SELECT * FROM books WHERE is_deleted<>1');
 
 echo "<ul>";
 
-while ($book = $stmt->fetch())
+while ( $row = $stmt->fetch() )
 {
-?> 
+?>
+
     <li>
-        <a href="./book.php?id=<?= $book['id']; ?>">
-            <?= $book['title']; ?>
+        <a href="./book.php?id=<?= $row['id']; ?>">
+            <?= $row['title']; ?>
         </a>
     </li>
+
 <?php
 }
 
