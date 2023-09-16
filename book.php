@@ -34,12 +34,19 @@ $stmt->execute(['book_id' => $id]);
     }
 ?>
     </ul>
+    <p>Ilmumisaasta: <?= $book['release_date']; ?> </p>
+    <p><?= $book['language']; ?> </p>
     <img src="<?= $book['cover_path']; ?>">
     <p>Hind: <?= round($book['price'], 2); ?> €</p>
+    <p><?= $book['summary']; ?> </p>
 
     <form action="delete.php" method="post" id="delete">
         <input type="hidden" name="id" value="<?= $id; ?>">
         <button form="delete">Kustuta</button>
+    </form>
+    <form action="delete.php" method="post" id="edit">
+        <input type="hidden" name="id" value="<?= $id; ?>">
+        <button form="Edit">Kustuta</button>
     </form>
 </body>
 </html>
