@@ -63,6 +63,7 @@ $book = $stmt->fetch();
                 <?= $author['first_name']; ?> <?= $author['last_name']; ?>
                 <form action="remove_author.php" method="post" style="display:inline;">
                     <input type="hidden" name="book_id" value="<?= $id; ?>">
+                    <input type="hidden" name="author_id" value="<?= $author['id']; ?>">
                     <input type="submit" value="Kustuta">
                 </form>
             </li>

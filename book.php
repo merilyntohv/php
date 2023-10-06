@@ -40,14 +40,18 @@ $stmt->execute(['book_id' => $id]);
     <img src="<?= $book['cover_path']; ?>">
     <p>Hind: <?= round($book['price'], 2); ?> €</p>
     <p><?= $book['summary']; ?> </p>
+
     <form action="delete.php" method="post" id="delete">
         <input type="hidden" name="id" value="<?= $id; ?>">
         <button form="delete">Kustuta</button>
     </form>
+
     <form action="restore.php" method="post" id="restore">
         <input type="hidden" name="id" value="<?= $id; ?>">
         <button form="restore">Taasta</button>
     </form>
+
     <a href="./editBooks.php?id=<?= $book['id']; ?>"><button>Muuda andmeid</button></a>
+
 </body>
 </html>
